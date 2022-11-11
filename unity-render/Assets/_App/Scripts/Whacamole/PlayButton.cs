@@ -14,6 +14,7 @@ public class PlayButton : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D _col){
         if(_col.name == "trigger" || _col.name == "mouse"){
+            whacamoleSceneManager.startSound.Play();
             whacamoleSceneManager.StartGame();
         }
     }

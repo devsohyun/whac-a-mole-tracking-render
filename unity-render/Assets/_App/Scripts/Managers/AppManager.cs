@@ -17,7 +17,6 @@ public class GlobalSettings {
 
 public class AppManager : MonoBehaviour
 {
-
     #region Variables
 
     [Header("Settings")]

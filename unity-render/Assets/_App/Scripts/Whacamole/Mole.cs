@@ -39,8 +39,8 @@ public class Mole : MonoBehaviour
     int moleIndex = 0;
     public bool isReadyToHit = false;
 
+
     [Header("Dependencies")]
-    public AppManager appManager;
     public WhacamoleSceneManager whacamoleSceneManager;
 
     #endregion
@@ -165,10 +165,10 @@ public class Mole : MonoBehaviour
     #region Collider
 
     void OnTriggerEnter2D(Collider2D _col){
-        Debug.Log(_col.name);
         if(hittable && (_col.name == "trigger" || _col.name == "mouse")){
             switch (moleType){
                 case MoleType.Standard:
+                    whacamoleSceneManager.hitSound.Play();
                     spriteRenderer.sprite = moleHit;
                     // add score
                     whacamoleSceneManager.AddScore(moleIndex, 1);
@@ -177,6 +177,7 @@ public class Mole : MonoBehaviour
                     hittable = false;
                     break;
                 case MoleType.HardHat:
+                    whacamoleSceneManager.hitSound.Play();
                     if(lives == 2){
                         spriteRenderer.sprite = moleHatBroken;
                         lives--;
@@ -189,11 +190,13 @@ public class Mole : MonoBehaviour
                     }
                     break;
                 case MoleType.Bomb:
+                    whacamoleSceneManager.bombSound.Play();
                     whacamoleSceneManager.GameOver(1);
                     break;
             }
         }
     }
+
 
     #endregion
 

@@ -321,7 +321,6 @@ MonoBehaviour:
   moleHatHit: {fileID: 21300000, guid: 4702b86f3a3def34685d8d68ede166d7, type: 3}
   showDuration: 0.5
   isReadyToHit: 0
-  appManager: {fileID: 0}
   whacamoleSceneManager: {fileID: 0}
 --- !u!95 &1536201408290856673
 Animator:
